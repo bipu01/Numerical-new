@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    int degree, c;
+    int degree, c, iteration = 0;
     float x, output;
     cout << "Enter the value of x=";
     cin >> x;
@@ -30,11 +30,12 @@ int main()
             B[c] = A[c] + B[c + 1] * x;
             cout << B[c] << endl;
         }
+        iteration++;
         c--;
     }
     output = B[0];
 
     cout << endl
-         << "Final output: " << output;
+         << "Final output: " << output << "\nIteration: " << iteration;
     return 0;
 }

@@ -8,8 +8,9 @@ public:
     float xl, xu, xm;
     float fl, fu, fm, error;
     float oldNum;
+    int iteration;
 
-    Bisection() : error(2), xu(0), xl(0), oldNum(-99) {}
+    Bisection() : error(2), xu(0), xl(0), oldNum(-99), iteration(0) {}
     void takeVal()
     {
         cout << "Enter two points in x: ";
@@ -63,6 +64,7 @@ public:
                 xl = xm;
                 oldNum = xl;
             }
+            iteration++;
         }
         return xm;
     }
@@ -74,6 +76,6 @@ int main()
 {
     Bisection b1;
     b1.takeVal();
-    cout << b1.calculate();
+    cout << b1.calculate() << "\n Iteration: " << b1.iteration;
     return 0;
 };

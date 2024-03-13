@@ -10,6 +10,8 @@ public:
     double func;
     double derivedFunc;
     double err;
+    int iteration;
+    Findvalue() : iteration(0) {}
 
     void askQsn()
     {
@@ -48,6 +50,7 @@ public:
         while (error() >= 0.05)
         {
             findXNew();
+            iteration++;
         }
     }
 };
@@ -57,7 +60,7 @@ int main()
     Findvalue f1;
     f1.askQsn();
     f1.calculate();
-    cout << "The value with error is: " << f1.xNew;
+    cout << "The value is: " << f1.xNew << "\nIteration: " << f1.iteration;
 
     return 0;
 };
